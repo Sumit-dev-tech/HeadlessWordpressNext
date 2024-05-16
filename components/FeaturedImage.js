@@ -27,7 +27,7 @@ export default function  FeaturedImage({post}){
 
   return(
     <Link href={`/blog/${post.slug}`}>
-        <Image src={img.src} width={img.width} height={img.height} alt={post.title} className="w-full"/>
+        <Image src={img.src} width={img.width} height={img.height} alt={post.title} className="w-full h-[200px] object-cover rounded-xl"/>
     </Link>
   )
 }

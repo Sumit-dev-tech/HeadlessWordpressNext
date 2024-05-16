@@ -4,8 +4,9 @@ import Navbar from "@/components/Navbar";
 import { getAllPosts } from "@/lib/post.";
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import FeaturedImage from "@/components/FeaturedImage";
+import Date from "@/components/Date";
 
 
 
@@ -15,10 +16,19 @@ export default function BlogPost() {
   useEffect(() => {
     async function fetchPosts() {
       const allPosts = await getAllPosts();
+      console.log(allPosts);
       setPosts(allPosts.nodes);
     }
     fetchPosts();
   }, []);
+  function removeLastWord(excerpt){
+     const word = excerpt.split(' ');
+
+     word.pop();
+
+     return word.join(' ');
+  }
+
   return (
     <>
       <Head>
@@ -48,11 +58,11 @@ export default function BlogPost() {
                 <div
                   className="text-[13px]"
                   dangerouslySetInnerHTML={{
-                    __html: removeTrailingEllipsis(post.excerpt),
+                    __html:  removeLastWord(post.excerpt),
                   }}
                 ></div>
-                <p>Date: {new Date(post.date).toDateString()}</p>
-                <p >Category: {post.categories.nodes[0].name}</p>
+                <p><Date dateString={post.date} /></p>
+                <p >{post.categories.nodes[0].name}</p>
                 <button className="text-[#1a2ec7]"><Link href={`/blog/${post.slug}`}>Read More</Link></button>
               </li>
             ))}
@@ -61,10 +71,6 @@ export default function BlogPost() {
       </main>
     </>
   );
-}
-function removeTrailingEllipsis(excerpt) {
-  if (excerpt.endsWith(" […]")) {
-    return excerpt.slice(0, -4);
-  }
-  return excerpt;
+  
+  
 }

@@ -1,3 +1,13 @@
-export default function Post({ params }) {
-    return <div>My Post: {params.postSlug}</div>
+import Navbar from "@/components/Navbar";
+
+
+export async function getStaticProps({params}){
+  
+}
+export default function Post({ posData }) {
+    return (
+    <>
+     
+    </>
+    );
   }
