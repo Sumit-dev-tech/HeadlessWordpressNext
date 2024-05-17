@@ -40,8 +40,12 @@ export default function BlogPost() {
           <ul className="gap-10 w-full grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 px-5">
 
             {posts.map((post) => (
-              <li key={post.slug}>
-                <FeaturedImage post={post}/>
+              <li key={post.slug} className="shadow-lg rounded-[20px]">
+                <div className="w-full relative rounded-[20px]">
+                <FeaturedImage post={post} />
+                <p className="absolute top-2 left-2 bg-white px-5 py-1">{post.categories.nodes[0].name}</p>
+                </div>
+                <div className="p-5">
                 <h1 className="text-blue text-[21px] font-bold text-slate-500">
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h1>
@@ -52,8 +56,10 @@ export default function BlogPost() {
                   }}
                 ></div>
                 <p>Date: {new Date(post.date).toDateString()}</p>
-                <p >Category: {post.categories.nodes[0].name}</p>
+              
                 <button className="text-[#1a2ec7]"><Link href={`/blog/${post.slug}`}>Read More</Link></button>
+                </div>
+                
               </li>
             ))}
           </ul>

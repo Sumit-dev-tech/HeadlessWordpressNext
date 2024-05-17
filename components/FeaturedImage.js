@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function  FeaturedImage({post}){
   let img = '';
 
-  const defaultFeaturedImage = "https://wp.procohat.com/wp-content/uploads/2024/04/NewsletterApril2024Img4.jpg";
+  const defaultFeaturedImage = "https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg";
   const defaultHeight = "300";
   const defaultWidth = "300";
 
@@ -27,7 +27,7 @@ export default function  FeaturedImage({post}){
 
   return(
     <Link href={`/blog/${post.slug}`}>
-        <Image src={img.src} width={img.width} height={img.height} alt={post.title} className="w-full"/>
+        <Image src={img.src} width={img.width} height={img.height} alt={post.title} className="w-full h-[250px] object-cover rounded-t-[20px]"/>
     </Link>
   )
 }
