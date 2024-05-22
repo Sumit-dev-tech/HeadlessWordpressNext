@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function  FeaturedImage({post}){
   let img = '';
 
-  const defaultFeaturedImage = "https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg";
+  const defaultFeaturedImage = "";
   const defaultHeight = "300";
   const defaultWidth = "300";
 

@@ -65,7 +65,7 @@ export default function BlogPost() {
                     __html:  removeLastWord(post.excerpt),
                   }}
                 ></div>
-                <p>Date: {new Date(post.date).toDateString()}</p>
+                <p>Date: <Date  dateString={post.date}/> </p>
                 <button className="text-[#1a2ec7]"><Link href={`/blog/${post.slug}`}>Read More</Link></button>
                 </div>
                 
