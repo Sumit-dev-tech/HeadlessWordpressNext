@@ -8,8 +8,6 @@ import Link from "next/link";
 import FeaturedImage from "@/components/FeaturedImage";
 import Date from "@/components/Date";
 
-
-
 export default function BlogPost() {
   const [posts, setPosts] = useState([]);
 
@@ -18,7 +16,7 @@ export default function BlogPost() {
       const allPosts = await getAllPosts();
       console.log(allPosts);
       setPosts(allPosts.nodes);
-    }
+    } 
     fetchPosts();
   }, []);
   function removeLastWord(excerpt){

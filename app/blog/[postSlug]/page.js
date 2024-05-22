@@ -1,9 +1,15 @@
-import Navbar from "@/components/Navbar";
+import React from 'react';
+import SinglePost from '@/components/SinglePost';
 
-export default function Post({ posData }) {
-    return (
+
+const page = () => {
+  return (
     <>
-     
+    
+     <SinglePost />
+     {/* <p>sing</p> */}
     </>
-    );
-  }
+  )
+}
+
+export default page
