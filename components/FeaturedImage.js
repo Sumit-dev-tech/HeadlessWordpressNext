@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function  FeaturedImage({post}){
   let img = '';
 
-  const defaultFeaturedImage = "";
+  const defaultFeaturedImage = "/placeholder.png";
   const defaultHeight = "300";
   const defaultWidth = "300";
 

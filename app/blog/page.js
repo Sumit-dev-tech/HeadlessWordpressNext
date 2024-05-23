@@ -51,7 +51,7 @@ export default function BlogPost() {
               <li key={post.slug} className="shadow-lg rounded-[20px]">
                 <div className="w-full relative rounded-[20px]">
                 <FeaturedImage post={post} />
-                <p className="absolute top-2 left-2 bg-white px-5 py-1">{post.categories.nodes[0].name}</p>
+                <p className="absolute top-2 left-2 bg-white px-5 py-1 rounded-[20px] shadow">{post.categories.nodes[0].name}</p>
                 </div>
                 <div className="p-5">
                 <h1 className="text-blue text-[21px] font-bold text-slate-500">
