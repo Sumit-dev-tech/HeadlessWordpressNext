@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
-import { getAllPosts } from "@/lib/post.";
+import { getAllPosts } from "@/lib/post";
 import Head from "next/head";
 import Link from "next/link";
 // import Image from "next/image";
@@ -14,7 +14,7 @@ export default function BlogPost() {
   useEffect(() => {
     async function fetchPosts() {
       const allPosts = await getAllPosts();
-      console.log(allPosts);
+      // console.log(allPosts);
       setPosts(allPosts.nodes);
     } 
     fetchPosts();

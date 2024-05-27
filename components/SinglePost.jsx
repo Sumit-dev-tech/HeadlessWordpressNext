@@ -27,7 +27,7 @@ export async function getStaticProps({params}){
             }
         }
      )),
-     fallback: flase
+     fallback: false,
    }
    
  }
