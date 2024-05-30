@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import { getAllPosts } from "@/lib/post";
@@ -16,15 +17,15 @@ export default function BlogPost() {
       const allPosts = await getAllPosts();
       // console.log(allPosts);
       setPosts(allPosts.nodes);
-    } 
+    }
     fetchPosts();
   }, []);
-  function removeLastWord(excerpt){
-     const word = excerpt.split(' ');
+  function removeLastWord(excerpt) {
+    const word = excerpt.split(' ');
 
-     word.pop();
+    word.pop();
 
-     return word.join(' ');
+    return word.join(' ');
   }
 
   return (
@@ -32,9 +33,12 @@ export default function BlogPost() {
       <Head>
         <title>Blog</title>
       </Head>
-      <section className="min-h-[500px] relative  w-screen bg-[url('/blog-bg.jpg')] bg-no-repeat bg-cover bg-center">
+      <section className="min-h-[500px] relative  w-full bg-[url('/blog-bg.jpg')] bg-no-repeat bg-cover bg-center">
         <div className="absolute bg-slate-900 inset-0 z-0 opacity-40"></div>
-        <Navbar className="z-10 relative" />
+        <div className="w-full py-3 bg-slate-700 relative z-10 bg-opacity-70">
+        <Navbar />
+        </div>
+        
         <div>
           <div className="min-h-[50vh] flex flex-col items-center z-10 justify-center relative ">
             <h1 className="text-6xl font-medium text-slate-100">
@@ -50,23 +54,30 @@ export default function BlogPost() {
             {posts.map((post) => (
               <li key={post.slug} className="shadow-lg rounded-[20px]">
                 <div className="w-full relative rounded-[20px]">
-                <FeaturedImage post={post} />
-                <p className="absolute top-2 left-2 bg-white px-5 py-1 rounded-[20px] shadow">{post.categories.nodes[0].name}</p>
+                  <FeaturedImage post={post} />
+                  <p className="absolute top-2 left-2 bg-white px-5 py-1 rounded-[20px] shadow">
+                    {post.categories.nodes.map((category, index) => (
+                      <React.Fragment key={category.slug}>
+                        {index > 0 && ', '}
+                        <Link href={`/category/${category.slug}`}>{category.name}</Link>
+                      </React.Fragment>
+                    ))}
+                  </p>
                 </div>
                 <div className="p-5">
-                <h1 className="text-blue text-[21px] font-bold text-slate-500">
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                </h1>
-                <div
-                  className="text-[13px]"
-                  dangerouslySetInnerHTML={{
-                    __html:  removeLastWord(post.excerpt),
-                  }}
-                ></div>
-                <p>Date: <Date  dateString={post.date}/> </p>
-                <button className="text-[#1a2ec7]"><Link href={`/blog/${post.slug}`}>Read More</Link></button>
+                  <h1 className="text-blue text-[21px] font-bold text-slate-500">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h1>
+                  <div
+                    className="text-[13px]"
+                    dangerouslySetInnerHTML={{
+                      __html: removeLastWord(post.excerpt),
+                    }}
+                  ></div>
+                  <p>Date: <Date dateString={post.date} /> </p>
+                  <button className="text-[#1a2ec7]"><Link href={`/blog/${post.slug}`}>Read More</Link></button>
                 </div>
-                
+
               </li>
             ))}
           </ul>
@@ -74,6 +85,6 @@ export default function BlogPost() {
       </main>
     </>
   );
-  
-  
+
+
 }
