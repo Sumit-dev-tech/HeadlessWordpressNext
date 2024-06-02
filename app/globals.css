@@ -30,4 +30,26 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .blog-content p{
+    @apply pb-4 text-lg;
+
+  }
+  .blog-content ul{
+    @apply list-disc pl-5 pb-4;
+
+  }
+
+  .blog-content a{
+    @apply text-blue-400 hover:text-blue-600;
+    
+  }
+  .blog-content figure{
+    @apply py-4  w-full ;
+  }
+  .blog-content figure img{
+    @apply mx-auto;
+  }
+  .blog-content figure figcaption{
+    @apply text-center;
+  }
 }
