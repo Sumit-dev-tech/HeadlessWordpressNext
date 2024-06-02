@@ -9,9 +9,8 @@ import Link from "next/link";
 import FeaturedImage from "@/components/FeaturedImage";
 import Date from "@/components/Date";
 
-export default function BlogPost() {
+export default function BlogPost(){
   const [posts, setPosts] = useState([]);
-
   useEffect(() => {
     async function fetchPosts() {
       const allPosts = await getAllPosts();
@@ -50,7 +49,6 @@ export default function BlogPost() {
       <main className="w-full flex justify-center items-center pt-5 pb-5">
         <div className="post-list mt-4 w-full flex justify-center max-w-[1200px] items-center flex-row flex-wrap flex-shrink-0">
           <ul className="gap-10 w-full grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 px-5">
-
             {posts.map((post) => (
               <li key={post.slug} className="shadow-lg rounded-[20px]">
                 <div className="w-full relative rounded-[20px]">
@@ -85,6 +83,4 @@ export default function BlogPost() {
       </main>
     </>
   );
-
-
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { getSinglePost, getPostSlugs } from '@/lib/post';
 import Navbar from '@/components/Navbar';
-import { empty } from '@apollo/client';
+// import { empty } from '@apollo/client';
 import Date from '@/components/Date';
 // import Head from 'next/head';
 export async function generateMetadata({ params }) {
@@ -24,6 +24,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function SinglePost ({params}) {
+  try{
   const postData = await getSinglePost(params.postSlug);
   // console.log(postData);
 
@@ -45,7 +46,10 @@ export default async function SinglePost ({params}) {
 
     return word.join(' ');
   }
-
+}
+catch (error){
+  console.log("error from catch",error);
+}
   return (
     <>
       <section className='bg-slate-700 w-full z-20 bg-opacity-70 py-2 absolute' >
