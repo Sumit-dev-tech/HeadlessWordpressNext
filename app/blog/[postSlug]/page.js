@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar';
 // import Head from 'next/head';
 export async function generateMetadata({ params }) {
   const postData = await getSinglePost(params.postSlug);
-  
   return {
     title: `${postData.title} - Headless WordPress`,
     description: postData.excerpt || postData.metaDescription || "Default meta description if none is provided.",
