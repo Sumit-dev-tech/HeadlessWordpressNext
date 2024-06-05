@@ -4,6 +4,9 @@ import Navbar from '@/components/Navbar';
 // import { empty } from '@apollo/client';
 import Date from '@/components/Date';
 // import Head from 'next/head';
+
+
+
 export async function generateMetadata({ params }) {
   const postData = await getSinglePost(params.postSlug);
   return {

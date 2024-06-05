@@ -12,7 +12,7 @@ export default function  FeaturedImage({post}){
   if(post.featuredImage){
     let size = post.featuredImage.node.mediaDetails.sizes[0];
     img ={
-        src: size. sourceUrl,
+        src: size.sourceUrl,
         width: size.width,
         height: size.height,
     }
@@ -24,6 +24,7 @@ export default function  FeaturedImage({post}){
         height: defaultHeight
     }
   }
+  
 
   return(
     <Link href={`/blog/${post.slug}`}>

@@ -37,7 +37,6 @@ export default function BlogPost(){
         <div className="w-full py-3 bg-slate-700 relative z-10 bg-opacity-70">
         <Navbar />
         </div>
-        
         <div>
           <div className="min-h-[50vh] flex flex-col items-center z-10 justify-center relative ">
             <h1 className="text-6xl font-medium text-slate-100">
@@ -72,7 +71,7 @@ export default function BlogPost(){
                       __html: removeLastWord(post.excerpt),
                     }}
                   ></div>
-                  <p>Date: <Date dateString={post.date} /> </p>
+                  <p className="text-[13px]">Date: <Date dateString={post.date} /> </p>
                   <button className="text-[#1a2ec7]"><Link href={`/blog/${post.slug}`}>Read More</Link></button>
                 </div>
 
